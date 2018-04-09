@@ -4,7 +4,7 @@ int suma (int Arr[],int x){
   if (x==0){
     return 0;
   }
-  return Arr[x]+suma(Arr,x-1);
+  return Arr[x-1]+suma(Arr,x-1);
 }
 int suma1 (int Arr[],int x){
   int cont=0;
