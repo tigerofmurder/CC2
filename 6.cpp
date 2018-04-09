@@ -8,8 +8,23 @@ void mostrar_letter (char *v,int n){
 	}
 	cout<<endl;
 }
+
+void mostrar(char arr[],int n){
+	for (int i=0;i<n;i++){
+		cout<<arr[i];
+	}
+	cout<<endl;
+}
 void intercambia (char arr[],char arr0[100]){
-	
+	int tam0=strlen(arr);
+	int tam1=strlen(arr0);
+	for (int i=0;i<tam1;i++){
+		arr[i]=arr0[i];
+	}
+	for (int j=tam1;j<tam0;j++){
+		arr[j]=' ';
+	}
+	mostrar(arr,tam1);
 }
 void intercambia1 (char *seq0, char *seq1){
 	int tam0=strlen(seq1);
@@ -26,5 +41,6 @@ main(){
 	cout<<"palabra: ";cin>>cad0;
 	char *cad1=new char [10];
 	cout<<"palabra: ";cin>>cad1;
+	intercambia(cad0,cad1);
 	intercambia1(cad0,cad1);
 }
