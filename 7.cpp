@@ -34,12 +34,23 @@ void concatenar1(char *seq0,char *seq1){
 	}
 	mostrar(seq0,t0);	
 }
+void concatenar2(char *seq0,char *seq1){
+	while (*(seq0)!=NULL){
+		*(seq0++);
+	}
+	while(*(seq1)!=NULL){
+		*(seq0)=*(seq1);
+		*(seq0++);
+		*(seq1++);
+	}
+}
 
 main(){
 	char *cad0=new char [10];
 	cout<<"palabra: ";cin>>cad0;
 	char *cad1=new char [10];
 	cout<<"palabra: ";cin>>cad1;
-	concatenar1(cad0,cad1);
+	concatenar2(cad0,cad1);
+	mostrar(cad0,sizeof(cad0));
 	concatenar0(cad0,cad1,3,3);	
 }
