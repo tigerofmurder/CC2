@@ -1,26 +1,24 @@
 #include<iostream>
-//falta
+
 using namespace std;
 int tamano (char arr[]){
-	char *ptr=arr;
 	int i=0;
-	while (*(ptr++)!=NULL){
+	while(arr[i]!=NULL){
 		i++;
 	}
-	cout<<int(*(ptr))<<endl;
-	cout<<int(arr[0])<<endl;
-	return int(*(arr));
+	return i;
 }
+
 int tamano1 (char arr[]){
-  int i=0;
-  while(arr[i]!='\0'){
-    i++;
-    //cout<<i<<endl;
-  }
-  return i;
+	char *seq0=arr;
+	char *seq1=arr;
+	while (*seq1!=NULL){
+		seq1++;
+	}
+	return seq1-seq0;
 }
 int main() {
-  char arr[]="Hello world!";
+  char arr[]={'h','e','l','l','o',' ','w','o','r','d','\0'};
   cout<<tamano(arr)<<endl;
   cout<<tamano1(arr)<<endl;
   return 0;
