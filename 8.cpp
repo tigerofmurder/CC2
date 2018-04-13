@@ -9,31 +9,51 @@ void mostrar_letter (char *v){
 	}
 	cout<<endl;
 }
-void intercambia0 (char arr[],int tam){
-	int letter=0;
-	srand(time(NULL));
-	for (int i=0;arr[i]!=NULL;i++){
-		letter=rand()%100+10;
-		arr[i]=char(letter);
+void mostrar (char v[],int tam){
+	for (int i=0;i<tam;i++){
+		cout<<v[i];
 	}
-	char *seq0=arr;
-	mostrar_letter(seq0);
+	cout<<endl;
 }
-
-void intercambia (char *seq0){
-	int letter=0;
-	srand(time(NULL));
-	for (int i=0;*(seq0+i)!=NULL;i++){
-		letter=rand()%100+10;
-		*(seq0+i)=char(letter);
+void copy0(char arr[],char arr0[100]){
+	int x=sizeof(arr);
+	for (int i=0;i<x;i++){
+		arr0[i]=arr[i];
 	}
-	
-	mostrar_letter(seq0);
+}
+void invierte0(char arr[],int tam){
+	char arr0[tam];
+	copy0(arr,arr0);
+	for (int i=0;i<tam;i++){
+		arr[i]=arr0[tam-1-i];
+	}
+}
+void copy(char *p,char *p1){
+	while (*(p)!=NULL){
+		*(p1)=*(p);
+		*(p++);*(p1++);
+	}
+}
+void invierte (char *seq0){
+	char *seq1=new char [100];
+	copy(seq0,seq1);
+	while (*(seq1)!=NULL){
+		*(seq1++);
+	}
+	while (*(seq0)!=NULL){
+		*(seq1--);
+		*(seq0)=*(seq1);
+		
+		*(seq0++);
+		
+	}
 }
 main(){
 	char *cad0=new char [10];
 	cout<<"palabra: ";cin>>cad0;
-	intercambia(cad0);
 	char arr[]={'a','b','c','d','e','/0'};
-	intercambia0(arr,5);
+	invierte0(arr,5);
+	mostrar(arr,5);
+	invierte(cad0);
+	mostrar_letter(cad0);
 }
